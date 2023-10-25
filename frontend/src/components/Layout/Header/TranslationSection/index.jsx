@@ -20,7 +20,6 @@ export default function SimplePopper() {
                 aria-describedby={id}
                 type="button"
                 onClick={handleClick}
-                sx={{ mr: 2 }}
             >
                 <TranslateSharp />
             </IconButton>
