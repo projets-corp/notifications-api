@@ -1,4 +1,4 @@
-import thymeleaf from "@assets/images/thymeleaf.png";
+import thymeleaf from '@assets/images/thymeleaf.png';
 import AnimateButton from '@components/extended/AnimateButton';
 import { Avatar, Button, Paper } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -33,17 +33,24 @@ const rows = [
 export default function Templates() {
     return (
         <>
-            <Box sx={{ my: 3, display: "flex", justifyContent: "flex-end" }}>
+            <Box sx={{ mb: 3, display: 'flex', justifyContent: 'flex-end' }}>
                 <AnimateButton>
                     <Button
-                        startIcon={<IconPlus />} color="primary" variant="contained"
-                    >New template</Button>
+                        startIcon={<IconPlus />}
+                        color="primary"
+                        variant="contained"
+                    >
+                        New template
+                    </Button>
                 </AnimateButton>
             </Box>
-            <Box sx={{ flexGrow: 1, pb: 3 }}>
-                <Paper >
+            <Box sx={{ flexGrow: 1 }}>
+                <Paper>
                     <TableContainer component={Paper}>
-                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <Table
+                            sx={{ minWidth: 650 }}
+                            aria-label="simple table"
+                        >
                             <TableHead>
                                 <TableRow>
                                     <TableCell sx={{ width: 0 }}></TableCell>
@@ -60,8 +67,13 @@ export default function Templates() {
                                         key={row.name}
                                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
-                                        <TableCell align="right"><Avatar src={thymeleaf} sx={{ width: 24, height: 24 }} /></TableCell>
-                                        <TableCell component="th" scope="row">
+                                        <TableCell align="right">
+                                            <Avatar src={thymeleaf} />
+                                        </TableCell>
+                                        <TableCell
+                                            component="th"
+                                            scope="row"
+                                        >
                                             {row.name}
                                         </TableCell>
                                         <TableCell align="right">{row.calories}</TableCell>

@@ -48,7 +48,7 @@ const palettes = {
     mode: "dark",
     background: {
       default: "#25293c",
-      paper: "#2f3349",
+      paper: "#2c3044",
     },
     ...commonPalette
   },
