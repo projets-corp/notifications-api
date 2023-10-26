@@ -13,9 +13,14 @@ export default function Dashboard() {
     const theme = useTheme();
     const color = theme.palette.mode === 'light' ? theme.palette.primary.light : theme.palette.primary.main;
     return (
-        <Box sx={{ py: 3 }}>
-            <Typography variant="h5">Daily Meeting</Typography>
-            <Box sx={{ pt: 2 }}>
+        <>
+            <Typography
+                variant="h5"
+                sx={{ mb: 3 }}
+            >
+                Daily Meeting
+            </Typography>
+            <Box>
                 <Grid
                     spacing={3}
                     container
@@ -28,7 +33,7 @@ export default function Dashboard() {
                             title={<Typography>Notification</Typography>}
                             icon={<IconMail />}
                         >
-                            <Box sx={{mx:1, }}>
+                            <Box sx={{ mx: 1 }}>
                                 <Chart
                                     {...getDemoChartConfig(
                                         theme,
@@ -84,6 +89,6 @@ export default function Dashboard() {
                     </Grid>
                 </Grid>
             </Box>
-        </Box>
+        </>
     );
 }

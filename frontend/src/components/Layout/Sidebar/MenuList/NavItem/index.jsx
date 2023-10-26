@@ -1,3 +1,4 @@
+import { useTheme } from '@emotion/react';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { Avatar, Chip, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
@@ -5,6 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { Link, useLocation } from 'react-router-dom';
 
 const NavItem = ({ item, level }) => {
+    const theme = useTheme();
     const location = useLocation();
     const Icon = item.icon;
     const itemIcon = item?.icon ? (
@@ -21,6 +23,8 @@ const NavItem = ({ item, level }) => {
             fontSize={level > 0 ? 'inherit' : 'medium'}
         />
     );
+    const selected = item.url === location.pathname;
+
     return (
         <ListItemButton
             LinkComponent={Link}
@@ -32,14 +36,16 @@ const NavItem = ({ item, level }) => {
                 mb: 0.5,
                 alignItems: 'flex-start',
                 backgroundColor: level > 1 ? 'transparent !important' : 'inherit',
+                color: level > 1 && selected && `${theme.palette.primary.main} !important`,
                 pl: `${level * 12}px`,
             }}
-            selected={item.url === location.pathname}
+            selected={selected}
         >
             <ListItemIcon
                 sx={{
                     my: 'auto',
                     minWidth: !item?.icon ? 24 : 36,
+                    color: level > 1 && selected && `${theme.palette.primary.main} !important`,
                 }}
             >
                 {itemIcon}

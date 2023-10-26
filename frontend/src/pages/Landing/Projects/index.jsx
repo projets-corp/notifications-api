@@ -2,7 +2,7 @@ import react from '@assets/techno/react.svg';
 import spring from '@assets/techno/spring.svg';
 import Card from '@components/Card';
 import AnimateButton from '@components/extended/AnimateButton';
-import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
+import { Avatar, AvatarGroup, Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import { IconDeviceMobileMessage, IconMail, IconPlus } from '@tabler/icons';
 import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
@@ -18,7 +18,7 @@ const projects = [
 const Projects = () => {
     const navigateTo = useNavigate();
     return (
-        <Box sx={{ py: 3 }}>
+        <>
             <Box sx={{ mb: 3, display: 'flex', justifyContent: 'space-between' }}>
                 <Typography variant="h6">
                     <FormattedMessage id="landing.projects.myProjects" />
@@ -47,13 +47,45 @@ const Projects = () => {
                         <Card
                             navigateTo={() => navigateTo('/project/dashboard')}
                             actions={
-                                <Box display={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
-                                    <IconButton aria-label="add to favorites">
-                                        <IconDeviceMobileMessage />
-                                    </IconButton>
-                                    <IconButton aria-label="share">
-                                        <IconMail />
-                                    </IconButton>
+                                <Box display={{ flex: 1, display: 'flex', justifyContent: 'space-between' }}>
+                                    <Box>
+                                        <IconButton aria-label="add to favorites">
+                                            <IconDeviceMobileMessage />
+                                        </IconButton>
+                                        <IconButton aria-label="share">
+                                            <IconMail />
+                                        </IconButton>
+                                    </Box>
+                                    <AvatarGroup
+                                        sx={{
+                                            '&>.MuiAvatar-root': {
+                                                width: 32,
+                                                height: 32,
+                                            },
+                                        }}
+                                        max={4}
+                                    >
+                                        <Avatar
+                                            alt="Remy Sharp"
+                                            src="test"
+                                        />
+                                        <Avatar
+                                            alt="Travis Howard"
+                                            src="test"
+                                        />
+                                        <Avatar
+                                            alt="Cindy Baker"
+                                            src="test"
+                                        />
+                                        <Avatar
+                                            alt="Agnes Walker"
+                                            src="test"
+                                        />
+                                        <Avatar
+                                            alt="Trevor Henderson"
+                                            src="test"
+                                        />
+                                    </AvatarGroup>
                                 </Box>
                             }
                             title={<Typography variant="subtitle1">{project.label}</Typography>}
@@ -65,7 +97,7 @@ const Projects = () => {
                     </Grid>
                 ))}
             </Grid>
-        </Box>
+        </>
     );
 };
 

@@ -1,10 +1,11 @@
-import { IconBriefcase, IconDashboard, IconFileCode, IconKey, IconSettings } from '@tabler/icons';
+import { IconBriefcase, IconDashboard, IconFileCode, IconKey, IconSettings, IconUsers } from '@tabler/icons';
 const icons = {
     IconDashboard,
     IconSettings,
     IconBriefcase,
     IconFileCode,
     IconKey,
+    IconUsers
 };
 
 const dashboard = {
@@ -20,12 +21,28 @@ const dashboard = {
             breadcrumbs: false,
         },
         {
-            id: 'edit',
-            title: 'sidebar.editProject',
-            type: 'item',
-            url: '/project/edit',
+            id: 'configuration',
+            title: 'sidebar.configuration',
+            type: 'collapse',
             icon: icons.IconSettings,
-            breadcrumbs: false,
+            children: [
+                {
+                    id: 'members',
+                    title: 'sidebar.members',
+                    type: 'item',
+                    url: '/project/members',
+                    icon: icons.IconUsers,
+                    target: true,
+                },
+                {
+                  id: 'edit',
+                  title: 'sidebar.editProject',
+                  type: 'item',
+                  url: '/project/edit',
+                  icon: icons.IconSettings,
+                  breadcrumbs: false,
+              },
+            ],
         },
         {
             id: 'templates',
@@ -45,7 +62,7 @@ const dashboard = {
         },
         {
             id: 'projects',
-            title: 'sidebar.projets',
+            title: 'sidebar.projects',
             type: 'item',
             url: '/',
             target: true,
