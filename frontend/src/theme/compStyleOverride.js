@@ -79,6 +79,16 @@ export default function componentStyleOverrides(theme) {
                 },
             },
         },
+        MuiAvatar: {
+            styleOverrides: {
+                root: {
+                    fontSize: '1em',
+                    borderColor: theme.palette.mode === 'light' ? '#fff' : theme.palette.background.paper,
+                    backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[200] : theme.palette.background.default,
+                    color: theme.palette.mode === 'light' ? theme.palette.grey[700] : '#fff',
+                },
+            },
+        },
         MuiCard: {
             styleOverrides: {
                 root: { backgroundImage: 'none' },

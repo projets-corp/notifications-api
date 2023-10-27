@@ -1,5 +1,5 @@
 import AnimateButton from '@components/extended/AnimateButton';
-import { useTheme } from '@emotion/react';
+import UserDefaultAvatar from '@components/svg/UserDefaultAvatar';
 import { Avatar, Button, Paper } from '@mui/material';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -8,7 +8,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { IconPlus, IconUser } from '@tabler/icons';
+import { IconPlus } from '@tabler/icons';
 import * as React from 'react';
 import { FormattedDate } from 'react-intl';
 
@@ -28,7 +28,6 @@ const rows = [
 ];
 
 export default function Templates() {
-    const theme = useTheme();
     return (
         <>
             <Box sx={{ mb: 3, display: 'flex', justifyContent: 'flex-end' }}>
@@ -60,29 +59,36 @@ export default function Templates() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {rows.map((row) => (
-                                    <TableRow
-                                        key={row.id}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    >
-                                        <TableCell>
-                                            <Avatar sx={{ bgcolor: theme.palette.primary.light }}>
-                                                <IconUser color={theme.palette.primary.main} />
-                                            </Avatar>
-                                        </TableCell>
-                                        <TableCell>{row.name}</TableCell>
-                                        <TableCell>{row.role}</TableCell>
-                                        <TableCell>
-                                            <FormattedDate value={row.expiration} />
-                                        </TableCell>
-                                        <TableCell>
-                                            <FormattedDate value={row.createdOn} />
-                                        </TableCell>
-                                        <TableCell>
-                                            <FormattedDate value={row.lastActivity} />
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
+                                {rows.map((row) => {
+                                    const i = Math.floor(Math.random() * 3) + 1;
+                                    return (
+                                        <TableRow
+                                            key={row.id}
+                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                        >
+                                            <TableCell>
+                                                <Avatar
+                                                    key={i}
+                                                    alt="Remy Sharp"
+                                                    src="test"
+                                                >
+                                                    <UserDefaultAvatar variant={i % 3} />
+                                                </Avatar>
+                                            </TableCell>
+                                            <TableCell>{row.name}</TableCell>
+                                            <TableCell>{row.role}</TableCell>
+                                            <TableCell>
+                                                <FormattedDate value={row.expiration} />
+                                            </TableCell>
+                                            <TableCell>
+                                                <FormattedDate value={row.createdOn} />
+                                            </TableCell>
+                                            <TableCell>
+                                                <FormattedDate value={row.lastActivity} />
+                                            </TableCell>
+                                        </TableRow>
+                                    );
+                                })}
                             </TableBody>
                         </Table>
                     </TableContainer>

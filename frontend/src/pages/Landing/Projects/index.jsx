@@ -6,6 +6,7 @@ import { Avatar, AvatarGroup, Box, Button, Grid, IconButton, Typography } from '
 import { IconDeviceMobileMessage, IconMail, IconPlus } from '@tabler/icons';
 import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
+import UserDefaultAvatar from '../../../components/svg/UserDefaultAvatar';
 
 const projects = [
     { label: 'Daily Meeting', techno: react },
@@ -14,6 +15,7 @@ const projects = [
     { label: 'DF Portal', techno: spring },
     { label: 'Caution', techno: react },
 ];
+
 
 const Projects = () => {
     const navigateTo = useNavigate();
@@ -65,26 +67,17 @@ const Projects = () => {
                                         }}
                                         max={4}
                                     >
-                                        <Avatar
-                                            alt="Remy Sharp"
-                                            src="test"
-                                        />
-                                        <Avatar
-                                            alt="Travis Howard"
-                                            src="test"
-                                        />
-                                        <Avatar
-                                            alt="Cindy Baker"
-                                            src="test"
-                                        />
-                                        <Avatar
-                                            alt="Agnes Walker"
-                                            src="test"
-                                        />
-                                        <Avatar
-                                            alt="Trevor Henderson"
-                                            src="test"
-                                        />
+                                        {Array.from({ length: Math.floor(Math.random() * 8) + 1 }).map((_, i) => {
+                                            return (
+                                                <Avatar
+                                                    key={i}
+                                                    alt="Remy Sharp"
+                                                    src="test"
+                                                >
+                                                    <UserDefaultAvatar variant={i % 3} />
+                                                </Avatar>
+                                            );
+                                        })}
                                     </AvatarGroup>
                                 </Box>
                             }
